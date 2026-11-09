@@ -1,0 +1,42 @@
+
+-- Step 15: Comparison of length of stay by laboratory availability
+-- Data sources: MIMIC-IV, hosp.admissions and hosp.labevents
+--
+-- Purpose:
+-- Compare hospital length of stay (LOS) between emergency
+-- admissions with all six selected laboratory tests
+-- and admissions without all six tests.
+--
+-- Inclusion criteria:
+-- Emergency admissions (EW EMER. and DIRECT EMER.)
+-- Non-negative hospital length of stay
+--
+-- Laboratory availability:
+-- Six selected laboratory tests
+-- Non-null numerical measurements
+-- Measurements within 6 hours before or after admission
+--
+-- Method:
+-- Admissions are divided into two groups based on
+-- whether all six laboratory tests are available.
+--
+-- The number of admissions, mean LOS and median LOS
+-- are calculated for each group.
+--
+-- Results:
+-- All six laboratory tests:
+-- Mean LOS: 7.17 days
+-- Median LOS: 4.61 days
+--
+-- Not all six laboratory tests:
+-- Mean LOS: 5.61 days
+-- Median LOS: 3.73 days
+--
+-- Interpretation:
+-- Admissions with all six laboratory tests had longer
+-- hospital stays on average than other emergency admissions.
+--
+-- This difference suggests potential selection bias
+-- associated with restricting the analysis to complete cases.
+-- The finding should be considered when interpreting
+-- the predictive model and its generalizability.
