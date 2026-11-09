@@ -1,0 +1,31 @@
+
+-- Step 14: Laboratory value distribution and percentiles
+-- Data sources: MIMIC-IV, hosp.admissions and hosp.labevents
+--
+-- Purpose:
+-- Examine the distribution of the six selected laboratory
+-- measurements in the complete-case emergency admission cohort.
+--
+-- Inclusion criteria:
+-- Emergency admissions (EW EMER. and DIRECT EMER.)
+-- Non-negative hospital length of stay
+-- Non-null numerical laboratory values
+-- Measurements within 6 hours before or after admission
+-- Availability of all six laboratory tests
+--
+-- Method:
+-- For each admission and laboratory test, the measurement
+-- closest to admission time is selected using ROW_NUMBER()
+-- and the absolute time difference in seconds.
+--
+-- When measurements are equally close to admission,
+-- charttime and labevent_id are used to resolve ties.
+--
+-- Only admissions with all six laboratory tests are included.
+--
+-- The 1st, 25th, 75th and 99th percentiles are calculated
+-- to explore laboratory value distributions and identify
+-- potentially extreme values.
+--
+-- This query is part of exploratory data analysis (EDA).
+-- Extreme laboratory values are not excluded at this stage.
