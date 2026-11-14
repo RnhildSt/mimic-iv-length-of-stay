@@ -52,9 +52,24 @@ Laboratory measurements are selected within a time window of six hours before to
 
 ## Current status
 
-Exploratory data analysis has been performed, and an initial analysis dataset containing 56,917 hospital admissions with complete laboratory measurements has been prepared.
+Exploratory data analysis (EDA) and data preparation have been completed. The final analytical dataset contains 56,917 emergency hospital admissions with complete measurements for all six selected laboratory tests.
 
-Prediction modelling is the next stage of the project.
+A Random Forest regression model has been developed to predict hospital length of stay using age and six laboratory measurements obtained around admission.
+
+The model was evaluated using Mean Absolute Error (MAE) and compared with a simple baseline model predicting the median length of stay.
+
+### Model results
+
+| Model | MAE (days) |
+|---|---|
+| Baseline model (median prediction) | 4.63 |
+| Random Forest regression (max depth = 3) | 5.07 |
+| Random Forest regression (max depth = 5) | 5.02 |
+| Random Forest regression (max depth = 10) | 4.99 |
+
+The baseline model achieved a lower MAE than the Random Forest models. This indicates that the Random Forest models tested did not improve predictive accuracy compared with a simple median-based prediction.
+
+The analyses, model development and evaluation are documented in `notebooks/MIMIC_IV_Random_Forest_Analysis_ryddig.ipynb`.
 
 ## Data availability
 
